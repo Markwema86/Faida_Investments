@@ -26,10 +26,9 @@
         <div class="title">
             <div>
                 <h1>Clients</h1>
-                
             </div>
             <div>
-                <button class="add-button">+ Add Client</button>
+                <button class="add-button" id="addClientBtn">+ Add Client</button>
             </div>
         </div>
     </section>
@@ -45,6 +44,7 @@
                 <tr>
                     <th>Client ID</th>
                     <th>Name</th>
+                    <th>Gender</th>
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Registration Date</th>
@@ -57,16 +57,19 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -75,6 +78,51 @@
             </tbody>
         </table>
     </section><br><br><br><br>
+    <!-- Popup Form -->
+    <div class="popup-overlay" id="popupForm">
+        <div class="popup-form">
+            <div class="form-header">
+                <h2>Add New Client</h2>
+                <button class="close-btn" id="closePopupBtn">&times;</button>
+            </div>
+            <form id="clientForm" action="./phpcode/process_client.php" method="POST">
+                <div class="form-group">
+                    <label for="clientID" >Client ID</label>
+                    <input type="text" id="clientID" name="Client_ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientName" name="">Full Name</label>
+                    <input type="text" id="clientName" name="Client_Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <select id="Gender" name="Gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Phone Number</label>
+                    <input type="text" id="clientPhone" name="Phone_Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientRegDate">Registration Date</label>
+                    <input type="date" id="clientRegDate" name="Registration_Date" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancelFormBtn">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Client</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-section">
             <div class="footer">
@@ -104,11 +152,10 @@
                         <li><a href="portfolio.html">Portfolio</a></li>
                     </lu>
                 </div>
-    
             </div>
             <p class="bottom-footer">&copy; Faida-Investment Firm 2025. All rights reserved.</p>
-            
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
