@@ -29,7 +29,7 @@
                 
             </div>
             <div>
-                <button class="add-button">+ Add Investment</button>
+                <button class="add-button" id="addClientBtn">+ Add Investment</button>
             </div>
         </div>
     </section>
@@ -79,6 +79,47 @@
             </tbody>
         </table>
     </section><br><br><br><br>
+
+    <!-- Popup Form for Investments -->
+    <div class="popup-overlay" id="popupForm">
+        <div class="popup-form">
+            <div class="form-header">
+                <h2>Add New Investment</h2>
+                <button class="close-btn" id="closePopupBtn">&times;</button>
+            </div>
+            <form id="investmentForm" action="./phpcode/process_investment.php" method="POST">
+                <div class="form-group">
+                    <label for="investmentID">Investment ID</label>
+                    <input type="text" id="investmentID" name="Investment_ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="investmentName">Investment Name</label>
+                    <input type="text" id="investmentName" name="Investment_Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="investmentType">Investment Type</label>
+                    <input type="text" id="investmentType" name="Investment_Type" required>
+                </div>
+                <div class="form-group">
+                    <label for="riskLevel">Risk Level</label>
+                    <input type="text" id="riskLevel" name="Risk_Level" required>
+                </div>
+                <div class="form-group">
+                    <label for="annualReturn">Annual Return (%)</label>
+                    <input type="number" step="0.1" id="annualReturn" name="Annual_Return" required>
+                </div>
+                <div class="form-group">
+                    <label for="minInvestment">Minimum Investment ($)</label>
+                    <input type="number" id="minInvestment" name="Minimum_Investment" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancelFormBtn">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Investment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-section">
             <div class="footer">
@@ -114,5 +155,7 @@
             
         </div>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
