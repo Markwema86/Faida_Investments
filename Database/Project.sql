@@ -2,8 +2,6 @@ create schema FAIDA_INVESTMENT_FIRM;
 show databases;
 use FAIDA_INVESTMENT_FIRM;
 
--- Add this table definition to your Database/Project.sql or run it directly
-USE faida_investment_firm;
 
 CREATE TABLE Users (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,6 +10,7 @@ CREATE TABLE Users (
     Password VARCHAR(255) NOT NULL, -- Increased length in case you decide to hash later
     RegistrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+desc Users;
 
 -- Optional: You might want an index on Email for faster logins
 CREATE INDEX idx_email ON Users (Email);
@@ -48,7 +47,7 @@ foreign key(Client_ID) references Clients_Table (Client_ID)
 );
 desc Portfolio_Table;
 
-create table Portfolio_Investement
+create table Portfolio_Investments
 (
 Portfolio_Investments_ID  int  primary key  null,
 Investment_amount decimal not null,
@@ -57,7 +56,7 @@ Portfolio_ID int not null,
 foreign key(Investment_ID) references Investments_Table(Investments_ID)
 );
 alter table Portfolio_Investements add foreign key(Portfolio_ID) references Portfolio_Table(Portfolio_ID);
-desc Portfolio_Investements;
+desc Portfolio_Investments;
 
 #alter table Portfolio_Investments modify Portfolio_Investments_ID   AUTO_INCREMENT;
 
